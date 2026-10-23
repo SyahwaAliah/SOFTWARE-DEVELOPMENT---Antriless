@@ -1,0 +1,74 @@
+/* ══════════════════════════════════════
+   dashboard.css — khusus halaman dashboard
+   ══════════════════════════════════════ */
+
+/* ── Stat Grid (2 kolom di dashboard) ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.15s;
+  display: block; /* override flex dari style.css */
+}
+
+.stat-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+
+.stat-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.stat-label { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
+.stat-value {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+  font-family: 'DM Mono', monospace;
+}
+
+.stat-change {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.stat-change.up   { color: var(--teal); }
+.stat-change.down { color: var(--red); }
+.stat-change i    { font-size: 13px; }
+
+/* ── Bottom Row (tabel + activity) ── */
+.bottom-row {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 14px;
+}
+
+/* ── Page Header (tanpa actions) ── */
+.page-header {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.page-header h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+.page-header p  { font-size: 13px; color: var(--text2); margin-top: 2px; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .stat-grid  { grid-template-columns: 1fr; }
+  .bottom-row { grid-template-columns: 1fr; }
+}
